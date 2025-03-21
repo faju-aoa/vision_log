@@ -1,0 +1,40 @@
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+th, td {
+    text-align: left;
+    padding-left: 18px;
+    padding-top: 15px;
+    vertical-align: bottom;
+}
+.head {
+    color: deepskyblue;
+    font-weight: bold;
+    font-size: large;
+}
+td.one{
+    color: grey;
+}td.two{
+    color: grey;
+}
+td.three{
+    color: black;
+    font-weight: bolder;
+}
+td.four{
+    color: darkgray;
+    font-weight: normal;
+    font-size: larger;
+}
+
+tr:nth-child(even) {background-color: #f1f1f1; }
+
+tr.new1 {
+  border-bottom: 2px solid black;
+}

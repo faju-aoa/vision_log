@@ -1,0 +1,36 @@
+{% extends 'vision_logs/base.html' %}  {# Extend your base template if you have one #}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'vision/topics.css' %}" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html">
+
+<div style="overflow-x: auto">
+<table>
+<tr class="new1">
+     <th class="head" style="width: 10%">S/N</th>
+     <th class="head" style="width: 10%">Date</th>
+     <th class="head" style="width: 15%">Topic</th>
+     <th class="head" style="width: 65%">Content</th>
+</tr>
+
+{% for topic in topics%}
+    <tr class="new1">
+        <td>{{topic.id}}</td>
+        <td class="two">{{topic.date_added|date:'M d, Y'  }}</td>
+        <td class="three">{{ topic.text }} VISION</td>
+        <td class="four">{{ topic.content }}</td>
+    </tr>
+{% endfor %}
+</table>
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

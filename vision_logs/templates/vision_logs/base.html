@@ -1,0 +1,32 @@
+
+
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vision_Log</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'vision/base.css' %}">
+</head>
+<body>
+    <div class="header">
+        <a href="{% url 'vision_logs:index' %}" class="logo">VISION LOGS</a>
+        <div class="header-right">
+                 <a  href="{% url 'vision_logs:topics' %}" class="logo">Edit</a>
+        </div>
+        <div class="header-right">
+                 <a  href="{% url 'vision_logs:new_topics' %}" class="logo">Add Topic </a>
+        </div>
+        <div class="header-right">
+                 <a  href="{% url 'vision_logs:topics' %}" class="logo">Topics</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+{% block content %}
+{% endblock content %}

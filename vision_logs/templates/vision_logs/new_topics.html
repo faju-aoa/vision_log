@@ -1,0 +1,14 @@
+{% extends "vision_logs/base.html" %}
+{% block content %}
+<p>Add a new topic:</p>
+<div>
+    <form action="{% url 'vision_logs:new_topics' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {{ content_form.as_p}}
+        <button name="submit">Add New Content</button>
+    </form>
+</div>
+
+
+{% endblock content %}
