@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
-
+from django.contrib.auth import authenticate,login,logout
+from django.contrib import messages
 from vision_logs.models import Topic
 from vision_logs.forms import TopicForm,ContentForm
 
@@ -8,7 +9,20 @@ from vision_logs.forms import TopicForm,ContentForm
 
 def index(request):
 
-    return render(request, 'vision_logs/base.html', {'study':'study'})
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            messages.success(request, 'You are now logged in')
+            return redirect('vision_logs:index')
+        else:
+            messages.success(request, 'Invalid credentials')
+            return redirect('vision_logs:index')
+    else:
+
+        return render(request, 'vision_logs/index.html', {})
 
 def topics(request):
 
@@ -49,3 +63,10 @@ def new_content(request, topic_id):
     context = {'topic': topic, 'form': form }
     return render(request, 'vision_logs/new_topics.html', context)
 '''
+def logout_user(request):
+    logout(request)
+    messages.success(request, 'You are now logged out')
+    return redirect('vision_logs:index')
+
+def register_user(request):
+    return render(request, 'vision_logs/register.html', {})
